@@ -25,6 +25,20 @@ public class Persona {
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
     private String apellido;
     
+    @NotNull
+    private String descripcion;
+    
     private String img;
+    
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String descripcion, String img) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.img = img;
+    }
   
+    
 }
