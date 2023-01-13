@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.portfolio.pti.Security.Controller;
 
@@ -13,9 +14,9 @@ import com.portfolio.pti.Security.Enums.RolNombre;
 import com.portfolio.pti.Security.Service.RolService;
 import com.portfolio.pti.Security.Service.UsuarioService;
 import com.portfolio.pti.Security.jwt.JwtProvider;
-import jakarta.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -92,4 +93,3 @@ public class AuthController {
     }
     
 }
-

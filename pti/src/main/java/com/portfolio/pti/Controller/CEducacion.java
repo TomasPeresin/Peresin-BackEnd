@@ -1,14 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.portfolio.pti.Controller;
+
 import com.portfolio.pti.Dto.dtoEducacion;
 import com.portfolio.pti.Entity.Educacion;
 import com.portfolio.pti.Security.Controller.Mensaje;
 import com.portfolio.pti.Service.Seducacion;
-import io.micrometer.common.util.StringUtils;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = {"https://mgbfrontend.web.app","http://localhost:4200"})
-public class EducacionController {
+@CrossOrigin(origins = "http://localhost:4200")
+public class CEducacion {
     @Autowired
     Seducacion sEducacion;
     
@@ -91,5 +93,4 @@ public class EducacionController {
         
         return new ResponseEntity(new Mensaje("Educacion actualizada"), HttpStatus.OK);
     }
-    
 }
