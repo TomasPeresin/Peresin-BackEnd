@@ -24,11 +24,28 @@ public class Persona {
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
     
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    @NotNull
+    @Size(min = 1, max =255, message = "no cumple con la longitud")
     private String img;
 
     @NotNull
     @Size(min = 1, max = 255, message = "no cumple la longiutd")
     private String descripcion;
     
+    @NotNull
+    @Size(min = 1, max = 255, message = "no cumple la longiutd")
+    private String banner;
+    
+    //Constructores
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String descripcion, String img, String banner) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.img = img;
+        this.descripcion = descripcion;
+        this.banner = banner;
+    }
 }

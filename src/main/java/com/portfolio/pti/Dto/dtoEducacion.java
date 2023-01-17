@@ -5,37 +5,37 @@
  */
 package com.portfolio.pti.Dto;
 
+import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class dtoEducacion {
     @NotBlank
-    private String nombreE;
+    private String institucionE;
+    
     @NotBlank
-    private String descripcionE;
+    private String tituloE;
+    
+    @NotBlank
+    private String estadoE;
+
+    @NotBlank
+    private LocalDate fechaInicio;
+    
+    @NotBlank
+    private LocalDate fechaFin;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String nombreE, String descripcionE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
+    public dtoEducacion(String institucion, String titulo, String estado, LocalDate fechaIni, LocalDate fechaFin) {
+        this.institucionE = institucion;
+        this.tituloE = titulo;
+        this.estadoE = estado;
+        this.fechaInicio = fechaIni;
+        this.fechaFin = fechaFin;
     }
-
-    public String getNombreE() {
-        return nombreE;
-    }
-
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
-    }
-
-    public String getDescripcionE() {
-        return descripcionE;
-    }
-
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
-    }
-    
     
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.portfolio.pti.Entity;
 
 import java.time.LocalDate;
@@ -17,36 +13,36 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Experiencia {
+public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple la longiutd")
-    private String nombreE;
+    private String nombre;
     
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple la longiutd")
-    private String descripcionE;
+    private String descripcion;
     
     @NotNull
     @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaInicio;
+    private LocalDate fecha;
     
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaFin;
+    @Size(min = 1, max = 50, message = "no cumple la longiutd")
+    private String link;
     
     //Constructores
 
-    public Experiencia() {
+    public Proyecto() {
     }
 
-    public Experiencia(String nombreE, String descripcionE, LocalDate fechaIni, LocalDate fechaFin) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-        this.fechaInicio = fechaIni;
-        this.fechaFin = fechaFin;
+    public Proyecto(String nombre, String descripcion, LocalDate fecha, String link) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.link = link;
     }
 }

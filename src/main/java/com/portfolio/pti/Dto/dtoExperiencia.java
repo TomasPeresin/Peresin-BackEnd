@@ -5,39 +5,35 @@
  */
 package com.portfolio.pti.Dto;
 
+import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class dtoExperiencia {
     @NotBlank
     private String nombreE;
+    
     @NotBlank
     private String descripcionE;
+    
+    @NotBlank
+    private LocalDate fechaInicio;
+    
+    @NotBlank
+    private LocalDate fechaFin;
     
     //Constructores
 
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public dtoExperiencia(String nombreE, String descripcionE, LocalDate fechaIni, LocalDate fechaFin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
-    }
-    //Getters & Setters
-
-    public String getNombreE() {
-        return nombreE;
-    }
-
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
-    }
-
-    public String getDescripcionE() {
-        return descripcionE;
-    }
-
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
+        this.fechaInicio = fechaIni;
+        this.fechaFin = fechaFin;
     }
     
 }
