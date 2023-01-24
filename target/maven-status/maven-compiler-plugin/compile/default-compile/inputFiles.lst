@@ -1,4 +1,5 @@
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Service\Shys.java
+D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Service\SProyecto.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\Entity\Rol.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Service\Seducacion.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\Controller\Mensaje.java
@@ -10,6 +11,7 @@ D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Se
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Interface\IPersonaService.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Repository\Rhys.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Dto\dtoExperiencia.java
+D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Entity\Proyecto.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\Entity\Usuario.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Controller\CExperiencia.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\jwt\JwtProvider.java
@@ -22,6 +24,8 @@ D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Se
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\MainSecurity.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Entity\hys.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Controller\CEducacion.java
+D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Controller\CProyecto.java
+D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Dto\dtoProyecto.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\PtiApplication.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Entity\Persona.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Entity\Experiencia.java
@@ -30,6 +34,7 @@ D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Se
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Repository\RExperiencia.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Repository\IPersonaRepository.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Controller\PersonaController.java
+D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Repository\RProyecto.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Dto\dtoHys.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\Service\RolService.java
 D:\Facultad\Curso-seProgramar\Peresin-BackEnd\src\main\java\com\portfolio\pti\Security\Enums\RolNombre.java

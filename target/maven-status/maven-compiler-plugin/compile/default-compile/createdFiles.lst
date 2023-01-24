@@ -2,6 +2,7 @@ com\portfolio\pti\Security\Controller\AuthController.class
 com\portfolio\pti\Security\jwt\JwtEntryPoint.class
 com\portfolio\pti\Entity\Persona.class
 com\portfolio\pti\Security\Service\UserDetailsImpl.class
+com\portfolio\pti\Dto\dtoProyecto.class
 com\portfolio\pti\Service\Shys.class
 com\portfolio\pti\Security\Dto\JwtDto.class
 com\portfolio\pti\Controller\CEducacion.class
@@ -28,12 +29,16 @@ com\portfolio\pti\Service\ImpPersonaService.class
 com\portfolio\pti\Interface\IPersonaService.class
 com\portfolio\pti\Entity\Educacion.class
 com\portfolio\pti\Repository\REducacion.class
+com\portfolio\pti\Repository\RProyecto.class
 com\portfolio\pti\Security\jwt\JwtTokenFilter.class
 com\portfolio\pti\Service\SExperiencia.class
 com\portfolio\pti\Controller\CHys.class
+com\portfolio\pti\Service\SProyecto.class
 com\portfolio\pti\Controller\PersonaController.class
 com\portfolio\pti\Security\Controller\Mensaje.class
+com\portfolio\pti\Controller\CProyecto.class
 com\portfolio\pti\Controller\CExperiencia.class
 com\portfolio\pti\Dto\dtoEducacion.class
+com\portfolio\pti\Entity\Proyecto.class
 com\portfolio\pti\Security\Entity\Usuario.class
 com\portfolio\pti\Dto\dtoHys.class

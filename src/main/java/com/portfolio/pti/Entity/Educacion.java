@@ -31,17 +31,15 @@ public class Educacion {
     private String estadoE;
 
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaInicio;
+    private Integer fechaInicio;
     
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaFin;
+    private Integer fechaFin;
     
     public Educacion() {
     }
 
-    public Educacion(String institucion, String titulo, String estado, LocalDate fechaIni, LocalDate fechaFin) {
+    public Educacion(String institucion, String titulo, String estado, Integer fechaIni, Integer fechaFin) {
         this.institucionE = institucion;
         this.tituloE = titulo;
         this.estadoE = estado;

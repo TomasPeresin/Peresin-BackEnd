@@ -15,7 +15,7 @@ public class dtoProyecto {
     private String descripcion;
     
     @NotBlank
-    private LocalDate fecha;
+    private Integer fecha;
 
     @NotBlank
     private String link;
@@ -23,7 +23,7 @@ public class dtoProyecto {
     public dtoProyecto() {
     }
 
-    public dtoProyecto(String nombre, String descripcion, LocalDate fecha, String link) {
+    public dtoProyecto(String nombre, String descripcion, Integer fecha, String link) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;

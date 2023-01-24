@@ -23,12 +23,11 @@ public class Proyecto {
     private String nombre;
     
     @NotNull
-    @Size(min = 1, max = 50, message = "no cumple la longiutd")
+    @Size(min = 1, max = 255, message = "no cumple la longiutd")
     private String descripcion;
     
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fecha;
+    private Integer fecha;
     
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple la longiutd")
@@ -39,7 +38,7 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(String nombre, String descripcion, LocalDate fecha, String link) {
+    public Proyecto(String nombre, String descripcion, Integer fecha, String link) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;

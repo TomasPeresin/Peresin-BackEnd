@@ -19,12 +19,12 @@ public class hys {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private int porcentaje;
+    private Integer porcentaje;
 
     public hys() {
     }
 
-    public hys(String nombre, int porcentaje) {
+    public hys(String nombre, Integer porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }

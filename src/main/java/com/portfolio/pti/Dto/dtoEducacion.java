@@ -22,15 +22,15 @@ public class dtoEducacion {
     private String estadoE;
 
     @NotBlank
-    private LocalDate fechaInicio;
+    private Integer fechaInicio;
     
     @NotBlank
-    private LocalDate fechaFin;
+    private Integer fechaFin;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String institucion, String titulo, String estado, LocalDate fechaIni, LocalDate fechaFin) {
+    public dtoEducacion(String institucion, String titulo, String estado, Integer fechaIni, Integer fechaFin) {
         this.institucionE = institucion;
         this.tituloE = titulo;
         this.estadoE = estado;

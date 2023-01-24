@@ -19,17 +19,17 @@ public class dtoExperiencia {
     private String descripcionE;
     
     @NotBlank
-    private LocalDate fechaInicio;
+    private Integer fechaInicio;
     
     @NotBlank
-    private LocalDate fechaFin;
+    private Integer fechaFin;
     
     //Constructores
 
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE, LocalDate fechaIni, LocalDate fechaFin) {
+    public dtoExperiencia(String nombreE, String descripcionE, Integer fechaIni, Integer fechaFin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.fechaInicio = fechaIni;

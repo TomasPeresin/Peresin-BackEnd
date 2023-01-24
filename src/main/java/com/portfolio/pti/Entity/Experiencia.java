@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Getter @Setter
 @Entity
@@ -31,19 +32,17 @@ public class Experiencia {
     private String descripcionE;
     
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaInicio;
+    private Integer fechaInicio;
     
     @NotNull
-    @Size(min = 10, max = 10, message = "no cumple la longiutd")
-    private LocalDate fechaFin;
+    private Integer fechaFin;
     
     //Constructores
 
     public Experiencia() {
     }
 
-    public Experiencia(String nombreE, String descripcionE, LocalDate fechaIni, LocalDate fechaFin) {
+    public Experiencia(String nombreE, String descripcionE, Integer fechaIni, Integer fechaFin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.fechaInicio = fechaIni;
