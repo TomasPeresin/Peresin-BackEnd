@@ -7,6 +7,7 @@ package com.portfolio.pti.Security.Service;
 
 import com.portfolio.pti.Security.Entity.Usuario;
 import com.portfolio.pti.Security.Repository.iUsuarioRepository;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class UsuarioService {
         return iusuarioRepository.existsByEmail(email);
     }
     
+    public List<Usuario> list(){
+        return iusuarioRepository.findAll();
+    }
+
     public void save(Usuario usuario){
         iusuarioRepository.save(usuario);
     }
