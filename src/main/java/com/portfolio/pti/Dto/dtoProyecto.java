@@ -1,12 +1,7 @@
-
 package com.portfolio.pti.Dto;
 
-import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
 public class dtoProyecto {
     @NotBlank
     private String nombre;
@@ -20,6 +15,8 @@ public class dtoProyecto {
     @NotBlank
     private String link;
 
+    private String img;
+
     public dtoProyecto() {
     }
 
@@ -29,6 +26,52 @@ public class dtoProyecto {
         this.fecha = fecha;
         this.link = link;
     }
-    
-}
 
+    public dtoProyecto(String nombre, String descripcion, Integer fecha, String link, String img) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.link = link;
+        this.img = img;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Integer getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Integer fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+}

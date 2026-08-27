@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.portfolio.pti.Dto;
 
-import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
 public class dtoEducacion {
     @NotBlank
     private String institucionE;
@@ -37,5 +28,44 @@ public class dtoEducacion {
         this.fechaInicio = fechaIni;
         this.fechaFin = fechaFin;
     }
-    
+
+    public String getInstitucionE() {
+        return institucionE;
+    }
+
+    public void setInstitucionE(String institucionE) {
+        this.institucionE = institucionE;
+    }
+
+    public String getTituloE() {
+        return tituloE;
+    }
+
+    public void setTituloE(String tituloE) {
+        this.tituloE = tituloE;
+    }
+
+    public String getEstadoE() {
+        return estadoE;
+    }
+
+    public void setEstadoE(String estadoE) {
+        this.estadoE = estadoE;
+    }
+
+    public Integer getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Integer fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Integer getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Integer fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }

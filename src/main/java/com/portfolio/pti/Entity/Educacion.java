@@ -1,16 +1,12 @@
 package com.portfolio.pti.Entity;
 
-import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
 @Entity
 public class Educacion {
     
@@ -46,5 +42,52 @@ public class Educacion {
         this.fechaInicio = fechaIni;
         this.fechaFin = fechaFin;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getInstitucionE() {
+        return institucionE;
+    }
+
+    public void setInstitucionE(String institucionE) {
+        this.institucionE = institucionE;
+    }
+
+    public String getTituloE() {
+        return tituloE;
+    }
+
+    public void setTituloE(String tituloE) {
+        this.tituloE = tituloE;
+    }
+
+    public String getEstadoE() {
+        return estadoE;
+    }
+
+    public void setEstadoE(String estadoE) {
+        this.estadoE = estadoE;
+    }
+
+    public Integer getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Integer fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Integer getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Integer fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }
