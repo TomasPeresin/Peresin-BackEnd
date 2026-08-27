@@ -1,29 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.portfolio.pti.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Educacion {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreE;
-    private String descripcionE;
+    
+    @NotNull
+    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    private String institucionE;
+    
+    @NotNull
+    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    private String tituloE;
+    
+    @NotNull
+    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    private String estadoE;
 
+    @NotNull
+    private Integer fechaInicio;
+    
+    @NotNull
+    private Integer fechaFin;
+    
     public Educacion() {
     }
 
-    public Educacion(String nombreE, String descripcionE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
+    public Educacion(String institucion, String titulo, String estado, Integer fechaIni, Integer fechaFin) {
+        this.institucionE = institucion;
+        this.tituloE = titulo;
+        this.estadoE = estado;
+        this.fechaInicio = fechaIni;
+        this.fechaFin = fechaFin;
     }
 
     public int getId() {
@@ -34,21 +51,43 @@ public class Educacion {
         this.id = id;
     }
 
-    public String getNombreE() {
-        return nombreE;
+    public String getInstitucionE() {
+        return institucionE;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    public void setInstitucionE(String institucionE) {
+        this.institucionE = institucionE;
     }
 
-    public String getDescripcionE() {
-        return descripcionE;
+    public String getTituloE() {
+        return tituloE;
     }
 
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
+    public void setTituloE(String tituloE) {
+        this.tituloE = tituloE;
     }
-    
-    
+
+    public String getEstadoE() {
+        return estadoE;
+    }
+
+    public void setEstadoE(String estadoE) {
+        this.estadoE = estadoE;
+    }
+
+    public Integer getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Integer fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Integer getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Integer fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }

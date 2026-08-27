@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.portfolio.pti.Entity;
 
 import javax.persistence.Entity;
@@ -16,12 +11,12 @@ public class hys {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private int porcentaje;
+    private Integer porcentaje;
 
     public hys() {
     }
 
-    public hys(String nombre, int porcentaje) {
+    public hys(String nombre, Integer porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }
@@ -42,15 +37,11 @@ public class hys {
         this.nombre = nombre;
     }
 
-    public int getPorcentaje() {
+    public Integer getPorcentaje() {
         return porcentaje;
     }
 
-    public void setPorcentaje(int porcentaje) {
+    public void setPorcentaje(Integer porcentaje) {
         this.porcentaje = porcentaje;
     }
-
-    
-    
-    
 }

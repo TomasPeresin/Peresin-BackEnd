@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "https://frontendpti.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://frontendpti.web.app", "http://localhost:4200"})
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
@@ -36,14 +35,14 @@ public class PersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
-    public String deletePersona(@PathVariable Long id){
+    public String deletePersona(@PathVariable Integer id){
         ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
-    public Persona editPersona(@PathVariable Long id,
+    public Persona editPersona(@PathVariable Integer id,
                                @RequestParam("nombre") String nuevoNombre,
                                @RequestParam("apellido") String nuevoApellido,
                                @RequestParam("img") String nuevoImg){
@@ -59,7 +58,7 @@ public class PersonaController {
     
     @GetMapping("personas/traer/perfil")
     public Persona findPersona(){
-        return ipersonaService.findPersona((long)1);
+        return ipersonaService.findPersona((Integer)1);
     }
    
 }

@@ -15,6 +15,7 @@ import com.portfolio.pti.Security.Service.RolService;
 import com.portfolio.pti.Security.Service.UsuarioService;
 import com.portfolio.pti.Security.jwt.JwtProvider;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://frontendpti.web.app")
+@CrossOrigin(origins = {"https://frontendpti.web.app", "http://localhost:4200"})
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -93,4 +94,9 @@ public class AuthController {
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
     
+    @GetMapping("/usuarios")
+    public ResponseEntity<List<Usuario>> listUsuarios(){
+        List<Usuario> list = usuarioService.list();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 }
