@@ -9,13 +9,14 @@ public class dtoProyecto {
     @NotBlank
     private String descripcion;
     
-    @NotBlank
     private Integer fecha;
 
     @NotBlank
     private String link;
 
     private String img;
+
+    private String categorias;
 
     public dtoProyecto() {
     }
@@ -33,6 +34,15 @@ public class dtoProyecto {
         this.fecha = fecha;
         this.link = link;
         this.img = img;
+    }
+
+    public dtoProyecto(String nombre, String descripcion, Integer fecha, String link, String img, String categorias) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.link = link;
+        this.img = img;
+        this.categorias = categorias;
     }
 
     public String getNombre() {
@@ -73,5 +83,13 @@ public class dtoProyecto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(String categorias) {
+        this.categorias = categorias;
     }
 }

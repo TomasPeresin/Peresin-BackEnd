@@ -22,6 +22,13 @@ public class RolService {
     public Optional<Rol> getByRolNombre(RolNombre rolNombre){
         return irolRepository.findByRolNombre(rolNombre);
     }
+
+    public Rol getOrCreateRol(RolNombre rolNombre) {
+        return irolRepository.findByRolNombre(rolNombre).orElseGet(() -> {
+            Rol newRol = new Rol(rolNombre);
+            return irolRepository.save(newRol);
+        });
+    }
     
     public void save(Rol rol){
         irolRepository.save(rol);

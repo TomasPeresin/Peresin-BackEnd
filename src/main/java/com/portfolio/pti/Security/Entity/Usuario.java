@@ -5,6 +5,7 @@
  */
 package com.portfolio.pti.Security.Entity;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -35,6 +36,9 @@ public class Usuario {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
+    
+    private String tokenPassword;
+    private LocalDateTime tokenPasswordExpiration;
     
     //Constructores
 
@@ -96,6 +100,22 @@ public class Usuario {
 
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
+    }
+
+    public String getTokenPassword() {
+        return tokenPassword;
+    }
+
+    public void setTokenPassword(String tokenPassword) {
+        this.tokenPassword = tokenPassword;
+    }
+
+    public LocalDateTime getTokenPasswordExpiration() {
+        return tokenPasswordExpiration;
+    }
+
+    public void setTokenPasswordExpiration(LocalDateTime tokenPasswordExpiration) {
+        this.tokenPasswordExpiration = tokenPasswordExpiration;
     }
     
 }

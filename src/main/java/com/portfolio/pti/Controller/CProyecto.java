@@ -68,7 +68,7 @@ public class CProyecto {
             return new ResponseEntity(new Mensaje("La fecha es obligatoria"), HttpStatus.BAD_REQUEST);
         
         Proyecto proyecto = new Proyecto(dtopro.getNombre(), dtopro.getDescripcion(), 
-                dtopro.getFecha(), dtopro.getLink(), dtopro.getImg());
+                dtopro.getFecha(), dtopro.getLink(), dtopro.getImg(), dtopro.getCategorias());
         sProyecto.save(proyecto);
         
         return new ResponseEntity(new Mensaje("Proyecto agregado"), HttpStatus.OK);
@@ -94,6 +94,7 @@ public class CProyecto {
         proyecto.setFecha(dtopro.getFecha());
         proyecto.setLink((dtopro.getLink()));
         proyecto.setImg(dtopro.getImg());
+        proyecto.setCategorias(dtopro.getCategorias());
         
         sProyecto.save(proyecto);
         return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);

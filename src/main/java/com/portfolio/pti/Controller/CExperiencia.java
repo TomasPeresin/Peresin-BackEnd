@@ -65,7 +65,7 @@ public class CExperiencia {
             return new ResponseEntity(new Mensaje("La fecha de inicio es obligatoria"), HttpStatus.BAD_REQUEST);
         
         Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE(), 
-                dtoexp.getFechaInicio(), dtoexp.getFechaFin());
+                dtoexp.getFechaInicio(), dtoexp.getFechaFin(), dtoexp.getTecnologias());
         sExperiencia.save(experiencia);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -90,6 +90,7 @@ public class CExperiencia {
         experiencia.setDescripcionE((dtoexp.getDescripcionE()));
         experiencia.setFechaInicio(dtoexp.getFechaInicio());
         experiencia.setFechaFin((dtoexp.getFechaFin()));
+        experiencia.setTecnologias(dtoexp.getTecnologias());
         
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);

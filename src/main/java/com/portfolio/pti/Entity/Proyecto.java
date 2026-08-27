@@ -32,6 +32,9 @@ public class Proyecto {
     @Size(max = 500, message = "no cumple la longitud")
     @javax.persistence.Column(length = 500)
     private String img;
+
+    @Size(max = 255)
+    private String categorias;
     
     //Constructores
 
@@ -51,6 +54,15 @@ public class Proyecto {
         this.fecha = fecha;
         this.link = link;
         this.img = img;
+    }
+
+    public Proyecto(String nombre, String descripcion, Integer fecha, String link, String img, String categorias) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.link = link;
+        this.img = img;
+        this.categorias = categorias;
     }
 
     // Getters y Setters
@@ -101,5 +113,13 @@ public class Proyecto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(String categorias) {
+        this.categorias = categorias;
     }
 }

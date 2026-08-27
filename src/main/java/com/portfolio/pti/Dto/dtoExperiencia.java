@@ -9,11 +9,11 @@ public class dtoExperiencia {
     @NotBlank
     private String descripcionE;
     
-    @NotBlank
     private Integer fechaInicio;
     
-    @NotBlank
     private Integer fechaFin;
+
+    private String tecnologias;
     
     //Constructores
 
@@ -25,6 +25,14 @@ public class dtoExperiencia {
         this.descripcionE = descripcionE;
         this.fechaInicio = fechaIni;
         this.fechaFin = fechaFin;
+    }
+
+    public dtoExperiencia(String nombreE, String descripcionE, Integer fechaIni, Integer fechaFin, String tecnologias) {
+        this.nombreE = nombreE;
+        this.descripcionE = descripcionE;
+        this.fechaInicio = fechaIni;
+        this.fechaFin = fechaFin;
+        this.tecnologias = tecnologias;
     }
 
     public String getNombreE() {
@@ -57,5 +65,13 @@ public class dtoExperiencia {
 
     public void setFechaFin(Integer fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public String getTecnologias() {
+        return tecnologias;
+    }
+
+    public void setTecnologias(String tecnologias) {
+        this.tecnologias = tecnologias;
     }
 }
