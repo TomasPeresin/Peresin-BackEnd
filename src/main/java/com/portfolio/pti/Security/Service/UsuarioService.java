@@ -22,6 +22,14 @@ public class UsuarioService {
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
     }
+
+    public Optional<Usuario> getByEmail(String email){
+        return iusuarioRepository.findByEmail(email);
+    }
+
+    public Optional<Usuario> getByTokenPassword(String tokenPassword){
+        return iusuarioRepository.findByTokenPassword(tokenPassword);
+    }
     
     public boolean existsByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.existsByNombreUsuario(nombreUsuario);

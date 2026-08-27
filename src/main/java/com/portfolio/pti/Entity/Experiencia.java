@@ -14,11 +14,12 @@ public class Experiencia {
     private int id;
     
     @NotNull
-    @Size(min = 1, max = 50, message = "no cumple la longiutd")
+    @Size(min = 1, max = 150, message = "no cumple la longitud")
     private String nombreE;
     
     @NotNull
-    @Size(min = 1, max = 50, message = "no cumple la longiutd")
+    @Size(min = 1, max = 2000, message = "no cumple la longitud")
+    @javax.persistence.Column(length = 2000)
     private String descripcionE;
     
     @NotNull
@@ -26,6 +27,10 @@ public class Experiencia {
     
     @NotNull
     private Integer fechaFin;
+
+    @Size(max = 500)
+    @javax.persistence.Column(length = 500)
+    private String tecnologias;
     
     //Constructores
 
@@ -37,6 +42,14 @@ public class Experiencia {
         this.descripcionE = descripcionE;
         this.fechaInicio = fechaIni;
         this.fechaFin = fechaFin;
+    }
+
+    public Experiencia(String nombreE, String descripcionE, Integer fechaIni, Integer fechaFin, String tecnologias) {
+        this.nombreE = nombreE;
+        this.descripcionE = descripcionE;
+        this.fechaInicio = fechaIni;
+        this.fechaFin = fechaFin;
+        this.tecnologias = tecnologias;
     }
 
     public int getId() {
@@ -77,5 +90,13 @@ public class Experiencia {
 
     public void setFechaFin(Integer fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public String getTecnologias() {
+        return tecnologias;
+    }
+
+    public void setTecnologias(String tecnologias) {
+        this.tecnologias = tecnologias;
     }
 }

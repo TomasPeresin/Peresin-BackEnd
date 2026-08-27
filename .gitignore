@@ -32,3 +32,11 @@ build/
 .vscode/
 
 /target
+uploads/
+/uploads/
+**/uploads/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
