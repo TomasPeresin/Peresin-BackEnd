@@ -42,6 +42,9 @@ public class JwtProvider {
     }
     
     public boolean validateToken(String token){
+        if (token == null || token.trim().isEmpty()) {
+            return false;
+        }
         try{
             Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
             return true;
@@ -52,7 +55,7 @@ public class JwtProvider {
         }catch (ExpiredJwtException e){
             logger.error("Token expirado");
         }catch (IllegalArgumentException e){
-            logger.error("Token vacio");
+            logger.warn("Token vacio o no valido");
         }catch (SignatureException e){
             logger.error("Firma no válida");
         }
