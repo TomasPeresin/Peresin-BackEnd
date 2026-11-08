@@ -31,8 +31,7 @@ public class Persona {
     @javax.persistence.Column(length = 2000)
     private String descripcion;
     
-    @NotNull
-    @Size(min = 1, max = 500, message = "no cumple la longitud")
+    @Size(max = 500, message = "no cumple la longitud")
     @javax.persistence.Column(length = 500)
     private String banner;
     
@@ -99,3 +98,4 @@ public class Persona {
         this.banner = banner;
     }
 }
+
