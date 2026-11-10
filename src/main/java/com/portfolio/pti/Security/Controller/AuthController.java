@@ -9,15 +9,19 @@ import com.portfolio.pti.Security.Entity.Rol;
 import com.portfolio.pti.Security.Entity.Usuario;
 import com.portfolio.pti.Security.Enums.RolNombre;
 import com.portfolio.pti.Security.Service.EmailService;
+import com.portfolio.pti.Security.Service.LoginAttemptService;
 import com.portfolio.pti.Security.Service.RolService;
 import com.portfolio.pti.Security.Service.UsuarioService;
 import com.portfolio.pti.Security.jwt.JwtProvider;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -60,6 +64,9 @@ public class AuthController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private LoginAttemptService loginAttemptService;
 
     @Value("${app.admin.secret:admin123}")
     private String adminSecret;
@@ -111,9 +118,29 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
+    public ResponseEntity<?> login(
+            @Valid @RequestBody LoginUsuario loginUsuario,
+            BindingResult bindingResult,
+            HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new Mensaje("Campos incompletos o incorrectos"), HttpStatus.BAD_REQUEST);
+        }
+
+        String clientKey = loginAttemptService.buildClientKey(request, loginUsuario.getNombreUsuario());
+        String ipKey = "ip:" + loginAttemptService.extractClientIp(request);
+
+        // Verificar si el usuario/IP ya se encuentra bloqueado temporalmente en caché
+        if (loginAttemptService.isBlocked(clientKey) || loginAttemptService.isBlocked(ipKey)) {
+            long lockSeconds = Math.max(
+                    loginAttemptService.getRemainingLockSeconds(clientKey),
+                    loginAttemptService.getRemainingLockSeconds(ipKey)
+            );
+            Map<String, Object> body = new HashMap<>();
+            body.put("mensaje", "Demasiados intentos fallidos. Acceso bloqueado por seguridad durante "
+                    + loginAttemptService.formatRemainingTime(lockSeconds) + ".");
+            body.put("intentosRestantes", 0);
+            body.put("bloqueadoSegundos", lockSeconds);
+            return new ResponseEntity<>(body, HttpStatus.TOO_MANY_REQUESTS);
         }
 
         try {
@@ -124,6 +151,10 @@ public class AuthController {
                     )
             );
 
+            // Login exitoso: limpiar caché de intentos fallidos
+            loginAttemptService.resetAttempts(clientKey);
+            loginAttemptService.resetAttempts(ipKey);
+
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String jwt = jwtProvider.generateToken(authentication);
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -131,7 +162,24 @@ public class AuthController {
             JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
             return new ResponseEntity<>(jwtDto, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(new Mensaje("Nombre de usuario o contraseña incorrectos"), HttpStatus.UNAUTHORIZED);
+            int remainingUser = loginAttemptService.recordFailedAttempt(clientKey);
+            int remainingIp = loginAttemptService.recordFailedAttempt(ipKey);
+            int remaining = Math.min(remainingUser, remainingIp);
+
+            Map<String, Object> body = new HashMap<>();
+            body.put("intentosRestantes", remaining);
+
+            if (remaining <= 0) {
+                long lockSeconds = LoginAttemptService.LOCK_DURATION_MINUTES * 60L;
+                body.put("mensaje", "Has superado el límite de " + LoginAttemptService.MAX_ATTEMPTS
+                        + " intentos fallidos. Tu acceso ha sido bloqueado por "
+                        + LoginAttemptService.LOCK_DURATION_MINUTES + " minutos.");
+                body.put("bloqueadoSegundos", lockSeconds);
+                return new ResponseEntity<>(body, HttpStatus.TOO_MANY_REQUESTS);
+            }
+
+            body.put("mensaje", "Nombre de usuario o contraseña incorrectos. Te quedan " + remaining + " intento(s).");
+            return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
         }
     }
 
